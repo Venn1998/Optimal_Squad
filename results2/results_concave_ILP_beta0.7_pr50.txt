@@ -1,0 +1,20 @@
+Squadra ottimale (concave ILP):
+Meret + Milinkovic (P) - Prezzo: 50 - FMVexp: 5.42 - Pr. Exp: 100.0 - Score: 5.42
+Gosens (D) - Prezzo: 33 - FMVexp: 6.68 - Pr. Exp: 85.0 - Score: 5.96
+Di Lorenzo (D) - Prezzo: 27 - FMVexp: 6.36 - Pr. Exp: 90.0 - Score: 5.91
+Dodò (D) - Prezzo: 21 - FMVexp: 6.15 - Pr. Exp: 90.0 - Score: 5.71
+Mancini (D) - Prezzo: 15 - FMVexp: 6.22 - Pr. Exp: 90.0 - Score: 5.78
+Zaccagni (C) - Prezzo: 100 - FMVexp: 7.05 - Pr. Exp: 90.0 - Score: 6.55
+Zambo Anguissa (C) - Prezzo: 33 - FMVexp: 6.58 - Pr. Exp: 80.0 - Score: 5.63
+Vlasic (C) - Prezzo: 20 - FMVexp: 6.55 - Pr. Exp: 80.0 - Score: 5.60
+Berardi (A) - Prezzo: 85 - FMVexp: 7.3 - Pr. Exp: 85.0 - Score: 6.52
+Pellegrino (A) - Prezzo: 33 - FMVexp: 6.85 - Pr. Exp: 80.0 - Score: 5.86
+Esposito Se. (A) - Prezzo: 32 - FMVexp: 6.79 - Pr. Exp: 80.0 - Score: 5.81
+
+Totale score: 64.74
+Fantamedia totale (se giocassero tutti): 71.95
+Costo totale: 449
+Percentuale spesa attaccanti: 30.0%
+Percentuale spesa centrocampisti: 30.6%
+Percentuale spesa difensori: 19.2%
+Percentuale spesa portiere: 10.0%

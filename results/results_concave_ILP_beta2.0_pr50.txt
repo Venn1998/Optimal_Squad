@@ -1,0 +1,20 @@
+Squadra ottimale (concave ILP):
+Sommer (P) - Prezzo: 50 - FMVexp: 5.35 - Pr. Exp: 100.0 - Score: 5.35
+Di Lorenzo (D) - Prezzo: 32 - FMVexp: 6.36 - Pr. Exp: 90.0 - Score: 5.15
+Gosens (D) - Prezzo: 38 - FMVexp: 6.68 - Pr. Exp: 85.0 - Score: 4.83
+Mancini (D) - Prezzo: 17 - FMVexp: 6.22 - Pr. Exp: 90.0 - Score: 5.04
+Dodò (D) - Prezzo: 28 - FMVexp: 6.15 - Pr. Exp: 90.0 - Score: 4.98
+Pulisic (C) - Prezzo: 78 - FMVexp: 7.34 - Pr. Exp: 90.0 - Score: 5.95
+Zaccagni (C) - Prezzo: 73 - FMVexp: 7.05 - Pr. Exp: 90.0 - Score: 5.71
+Zambo Anguissa (C) - Prezzo: 23 - FMVexp: 6.58 - Pr. Exp: 80.0 - Score: 4.21
+Berardi (A) - Prezzo: 75 - FMVexp: 7.3 - Pr. Exp: 85.0 - Score: 5.27
+Esposito Se. (A) - Prezzo: 20 - FMVexp: 6.79 - Pr. Exp: 80.0 - Score: 4.35
+Laurientiè (A) - Prezzo: 15 - FMVexp: 6.83 - Pr. Exp: 80.0 - Score: 4.37
+
+Totale score: 55.21
+Fantamedia totale (se giocassero tutti): 72.65
+Costo totale: 449
+Percentuale spesa attaccanti: 22.0%
+Percentuale spesa centrocampisti: 34.8%
+Percentuale spesa difensori: 23.0%
+Percentuale spesa portiere: 10.0%

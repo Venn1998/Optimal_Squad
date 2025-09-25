@@ -1,8 +1,10 @@
 import pulp
 from utils import read_data
 
+RESULTS_FOLDER = "results2/"
 
-def simple_ILP():
+
+def simple_ILP(budget=450):
     players = read_data()
 
     # Definisci il problema
@@ -15,7 +17,7 @@ def simple_ILP():
     prob += pulp.lpSum(p["fmv_exp"] * x[p["name"]] for p in players)
 
     # Vincolo budget (massimo 420 crediti)
-    prob += pulp.lpSum(p["price"] * x[p["name"]] for p in players) <= 420
+    prob += pulp.lpSum(p["price"] * x[p["name"]] for p in players) <= budget
 
     # Vincoli per ruolo
     prob += pulp.lpSum(x[p["name"]] for p in players if p["role"] == "P") == 1
@@ -93,12 +95,11 @@ def ILP_presenze():
     print("Costo totale:", costo_tot)
 
 
-def concave_ILP(players, budget=420, beta=0.7, pr_cutoff=50):
+def concave_ILP(players, budget=450, beta=1.5, pr_cutoff=50):
     """
     players: lista di dict con keys: name, role (P/D/C/A), price, fmv_exp, pr_exp
     beta: parametro concavità (0<beta<=1). Più basso = meno importanza alle presenze.
     pr_cutoff: considera solo giocatori con pr_exp >= cutoff
-    n_giornate: numero di giornate del campionato (default 38)
     """
     # filtro cutoff
     players = [p for p in players if p.get("pr_exp", 0) >= pr_cutoff]
@@ -145,6 +146,35 @@ def concave_ILP(players, budget=420, beta=0.7, pr_cutoff=50):
     print("\nTotale score:", round(totale_score, 2))
     print("Fantamedia totale (se giocassero tutti):", fantamedia_tot)
     print("Costo totale:", costo)
+    print(
+        f"Percentuale spesa attaccanti: {sum(p['price'] for p in squadra if p['role'] == 'A')/500*100:.1f}%")
+    print(
+        f"Percentuale spesa centrocampisti: {sum(p['price'] for p in squadra if p['role'] == 'C')/500*100:.1f}%")
+    print(
+        f"Percentuale spesa difensori: {sum(p['price'] for p in squadra if p['role'] == 'D')/500*100:.1f}%")
+    print(
+        f"Percentuale spesa portiere: {sum(p['price'] for p in squadra if p['role'] == 'P')/500*100:.1f}%")
+
+    # write everything to a file
+    with open(f"{RESULTS_FOLDER}/results_concave_ILP_beta{beta}_pr{pr_cutoff}.txt", "w") as f:
+        f.write("Squadra ottimale (concave ILP):\n")
+        for p in squadra:
+            f.write(
+                f"{p['name']} ({p['role']}) - Prezzo: {p['price']} "
+                f"- FMVexp: {p['fmv_exp']} - Pr. Exp: {p['pr_exp']} "
+                f"- Score: {p['score']:.2f}\n"
+            )
+        f.write(f"\nTotale score: {round(totale_score, 2)}\n")
+        f.write(f"Fantamedia totale (se giocassero tutti): {fantamedia_tot}\n")
+        f.write(f"Costo totale: {costo}\n")
+        f.write(
+            f"Percentuale spesa attaccanti: {sum(p['price'] for p in squadra if p['role'] == 'A')/500*100:.1f}%\n")
+        f.write(
+            f"Percentuale spesa centrocampisti: {sum(p['price'] for p in squadra if p['role'] == 'C')/500*100:.1f}%\n")
+        f.write(
+            f"Percentuale spesa difensori: {sum(p['price'] for p in squadra if p['role'] == 'D')/500*100:.1f}%\n")
+        f.write(
+            f"Percentuale spesa portiere: {sum(p['price'] for p in squadra if p['role'] == 'P')/500*100:.1f}%\n")
 
     return {
         "squadra": squadra,
@@ -293,7 +323,7 @@ def weighted_backup_ILP_full(players, budget=430, pr_cutoff=50):
         candidates = roles[r]
         for p in candidates:
             panchinari[p["name"]] = pulp.LpVariable(
-                f"panch_{r}_{p['name']}", cat="Binary") # 1 se p è panchinaro
+                f"panch_{r}_{p['name']}", cat="Binary")  # 1 se p è panchinaro
         prob += pulp.lpSum(panchinari[p["name"]] for p in candidates) == 1
         # nessun giocatore può essere titolare e panchinaro insieme
         for p in candidates:
@@ -387,7 +417,7 @@ def weighted_backup_ILP_full(players, budget=430, pr_cutoff=50):
 if __name__ == "__main__":
     # simple_ILP()
     # ILP_presenze()
-    # for beta in [0.3, 0.5, 0.7, 0.9, 1.0]:
-    #     print(f"\n=== Risultati per beta = {beta} ===")
-    #     concave_ILP(read_data(), beta=beta, pr_cutoff=40)
-    weighted_backup_ILP_full(read_data(), budget=470, pr_cutoff=50)
+    for beta in [0, 0.5, 0.7, 0.9, 1.0, 1.5, 2.0]:
+        print(f"\n=== Risultati per beta = {beta} ===")
+        concave_ILP(read_data(), beta=beta, pr_cutoff=50)
+    # weighted_backup_ILP_full(read_data(), budget=470, pr_cutoff=60)

@@ -1,0 +1,20 @@
+Squadra ottimale (concave ILP):
+Sommer + martinez (P) - Prezzo: 40 - FMVexp: 5.35 - Pr. Exp: 100.0 - Score: 5.35
+Dumfries (D) - Prezzo: 51 - FMVexp: 6.79 - Pr. Exp: 80.0 - Score: 6.79
+Gosens (D) - Prezzo: 33 - FMVexp: 6.68 - Pr. Exp: 85.0 - Score: 6.68
+Carlos augusto (D) - Prezzo: 18 - FMVexp: 6.5 - Pr. Exp: 65.0 - Score: 6.50
+Gutierrez (D) - Prezzo: 5 - FMVexp: 6.39 - Pr. Exp: 60.0 - Score: 6.39
+Orsolini (C) - Prezzo: 113 - FMVexp: 7.58 - Pr. Exp: 75.0 - Score: 7.58
+Odgaard (C) - Prezzo: 24 - FMVexp: 6.85 - Pr. Exp: 70.0 - Score: 6.85
+Elsha (C) - Prezzo: 8 - FMVexp: 6.79 - Pr. Exp: 50.0 - Score: 6.79
+Scamacca (A) - Prezzo: 53 - FMVexp: 7.5 - Pr. Exp: 70.0 - Score: 7.50
+Dybala (A) - Prezzo: 65 - FMVexp: 7.59 - Pr. Exp: 50.0 - Score: 7.59
+Zapata (A) - Prezzo: 40 - FMVexp: 7.42 - Pr. Exp: 50.0 - Score: 7.42
+
+Totale score: 75.44
+Fantamedia totale (se giocassero tutti): 75.44
+Costo totale: 450
+Percentuale spesa attaccanti: 31.6%
+Percentuale spesa centrocampisti: 29.0%
+Percentuale spesa difensori: 21.4%
+Percentuale spesa portiere: 8.0%
