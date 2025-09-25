@@ -1,7 +1,11 @@
 import pulp
+import os
+
 from utils import read_data
 
 RESULTS_FOLDER = "results2/"
+if not os.path.exists(RESULTS_FOLDER):
+    os.makedirs(RESULTS_FOLDER)
 
 
 def simple_ILP(budget=450):
