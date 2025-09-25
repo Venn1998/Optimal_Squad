@@ -137,12 +137,11 @@ def concave_ILP(players, budget=450, beta=1.5, pr_cutoff=50):
     fantamedia_tot = sum(p["fmv_exp"] for p in squadra)
 
     print("Squadra ottimale (concave ILP):")
+    print(f"{'Giocatore':<20} {'FMV':<8} {'Costo':<8} {'Pr. Exp':<10}")
+    print("-" * 50)
     for p in squadra:
         print(
-            f"{p['name']} ({p['role']}) - Prezzo: {p['price']} "
-            f"- FMVexp: {p['fmv_exp']} - Pr. Exp: {p['pr_exp']} "
-            f"- Score: {p['score']:.2f}"
-        )
+            f"{p['name']:<20} {p['fmv_exp']:<8.2f} {p['price']:<8} {p['pr_exp']:<9.1f}%")
     print("\nTotale score:", round(totale_score, 2))
     print("Fantamedia totale (se giocassero tutti):", fantamedia_tot)
     print("Costo totale:", costo)
@@ -174,7 +173,36 @@ def concave_ILP(players, budget=450, beta=1.5, pr_cutoff=50):
         f.write(
             f"Percentuale spesa difensori: {sum(p['price'] for p in squadra if p['role'] == 'D')/500*100:.1f}%\n")
         f.write(
+            # format everything in nice formatted tables
             f"Percentuale spesa portiere: {sum(p['price'] for p in squadra if p['role'] == 'P')/500*100:.1f}%\n")
+    with open(f"{RESULTS_FOLDER}/results_concave_ILP_beta{beta}_pr{pr_cutoff}.md", "w") as f:
+        f.write("# Squadra Ottimale (Concave ILP)\n\n")
+        f.write(
+            f"**Parametri:** Beta = `{beta}`, PR Cutoff = `{pr_cutoff}`\n\n")
+        f.write(
+            "| Giocatore            | Ruolo | Prezzo | FMVexp | Pr. Exp | Score  |\n")
+        f.write(
+            "|:---------------------|:------|:-------|:-------|:--------|:-------|\n")
+        for p in squadra:
+            f.write(
+                f"| {p['name']:<20} | {p['role']:<5} | {p['price']:<6} | {p['fmv_exp']:<6.2f} | {p['pr_exp']:<7.1f}% | {p['score']:<6.2f} |\n"
+            )
+        f.write("\n### Riepilogo\n")
+        f.write(f"- **Totale Score:** `{round(totale_score, 2)}`\n")
+        f.write(
+            f"- **Fantamedia totale (se giocassero tutti):** `{fantamedia_tot}`\n")
+        f.write(f"- **Costo totale:** `{costo}`\n")
+        f.write("\n### Spesa per Ruolo\n")
+        f.write("| Ruolo       | Spesa (%) |\n")
+        f.write("|:------------|:----------|\n")
+        f.write(
+            f"| Attaccanti  | {sum(p['price'] for p in squadra if p['role'] == 'A')/budget*100:.1f}% |\n")
+        f.write(
+            f"| Centrocampisti | {sum(p['price'] for p in squadra if p['role'] == 'C')/budget*100:.1f}% |\n")
+        f.write(
+            f"| Difensori   | {sum(p['price'] for p in squadra if p['role'] == 'D')/budget*100:.1f}% |\n")
+        f.write(
+            f"| Portiere    | {sum(p['price'] for p in squadra if p['role'] == 'P')/budget*100:.1f}% |\n")
 
     return {
         "squadra": squadra,
@@ -330,9 +358,8 @@ def weighted_backup_ILP_full(players, budget=430, pr_cutoff=50):
             prob += x[p["name"]] + panchinari[p["name"]] <= 1
 
     # vincolo budget: somma dei prezzi dei titolari e panchinari <= budget
-    prob += pulp.lpSum(x[p["name"]] * p["price"] for p in players) + \
-        pulp.lpSum(panchinari[p["name"]] * p["price"]
-                   for p in players if p["name"] in panchinari) <= budget
+    prob += pulp.lpSum(x[p["name"]] * p["price"] for p in players) + pulp.lpSum(panchinari[p["name"]] * p["price"]
+                                                                                for p in players if p["name"] in panchinari) <= budget
     # prob += pulp.lpSum(x[p["name"]] * p["price"] for p in players) <= budget
 
     # funzione obiettivo
@@ -344,15 +371,12 @@ def weighted_backup_ILP_full(players, budget=430, pr_cutoff=50):
 
     # vincolo: in ogni ruolo (tra titolari e panchinari): sum(pr_exp) >= 90*n_titolari
     # prob += pulp.lpSum(x[p["name"]] * p["pr_exp"] for p in roles["P"]) >= 90 * 1
-    prob += pulp.lpSum(x[p["name"]] * p["pr_exp"] for p in roles["D"]) + \
-        pulp.lpSum(panchinari[p["name"]] * p["pr_exp"]
-                   for p in roles["D"]) >= 90 * 4
-    prob += pulp.lpSum(x[p["name"]] * p["pr_exp"] for p in roles["C"]) + \
-        pulp.lpSum(panchinari[p["name"]] * p["pr_exp"]
-                   for p in roles["C"]) >= 90 * 3
-    prob += pulp.lpSum(x[p["name"]] * p["pr_exp"] for p in roles["A"]) + \
-        pulp.lpSum(panchinari[p["name"]] * p["pr_exp"]
-                   for p in roles["A"]) >= 90 * 3
+    prob += pulp.lpSum(x[p["name"]] * p["pr_exp"] for p in roles["D"]) + pulp.lpSum(panchinari[p["name"]] * p["pr_exp"]
+                                                                                    for p in roles["D"]) >= 90 * 4
+    prob += pulp.lpSum(x[p["name"]] * p["pr_exp"] for p in roles["C"]) + pulp.lpSum(panchinari[p["name"]] * p["pr_exp"]
+                                                                                    for p in roles["C"]) >= 90 * 3
+    prob += pulp.lpSum(x[p["name"]] * p["pr_exp"] for p in roles["A"]) + pulp.lpSum(
+        panchinari[p["name"]] * p["pr_exp"] for p in roles["A"]) >= 90 * 3
 
     # titolari + panchinaro con contributo proporzionale
     for r, n_titolari in zip(["D", "C", "A"], [4, 3, 3]):
