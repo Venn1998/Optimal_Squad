@@ -20,6 +20,7 @@
         </form>
         <div id="results" class="mt-5" style="display:none;">
             <h2>Evaluation Results</h2>
+            <button id="export-txt" class="btn btn-secondary mb-2">Export to TXT</button>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -132,6 +133,27 @@
 
                     document.getElementById('results').style.display = 'block';
                 });
+            });
+
+            $('#export-txt').on('click', function() {
+                let content = 'Squad Evaluation Results\n\n';
+                content += 'Squad:\n';
+                const rows = document.getElementById('squad-table').rows;
+                for (let i = 0; i < rows.length; i++) {
+                    const cells = rows[i].cells;
+                    content += `${cells[0].innerText} (${cells[1].innerText}) - FMV: ${cells[2].innerText}, Price: ${cells[3].innerText}, Pr. Exp: ${cells[4].innerText}\n`;
+                }
+
+                content += '\nSummary:\n';
+                const summary = document.getElementById('summary').innerText;
+                content += summary;
+
+                const blob = new Blob([content], { type: 'text/plain' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'squad_evaluation.txt';
+                a.click();
+                URL.revokeObjectURL(a.href);
             });
         });
     </script>
