@@ -43,7 +43,7 @@ def evaluate_squad(squad_path):
 if __name__ == '__main__':
     import sys
     if len(sys.argv) != 2:
-        print("Usage: python eval_squad.py <squad_file>")
+        print("Usage: python eval_squad.py <squad_file_path>")
         sys.exit(1)
     squad_file = sys.argv[1]
     fmv, price, pr_exp = evaluate_squad(squad_file)
