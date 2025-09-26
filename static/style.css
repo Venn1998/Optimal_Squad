@@ -76,7 +76,7 @@ h1, h2 {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: #4CAF50;
-    color: #000;
+    color: #000 !important;
 }
 
 .select2-container--default .select2-results__option {

@@ -68,7 +68,7 @@
 
         $(document).ready(function() {
             const roleColors = {
-                'P': 'lightyellow',
+                'P': 'yellow',
                 'D': 'lightgreen',
                 'C': 'lightblue',
                 'A': 'lightcoral'
@@ -84,6 +84,7 @@
                 var playerData = players.find(p => p.name === player.id);
                 if (playerData) {
                     $player.css('background-color', roleColors[playerData.role]);
+                    $player.css('color', '#000');
                 }
                 return $player;
             };
