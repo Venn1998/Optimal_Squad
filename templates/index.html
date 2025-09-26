@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimal Squad</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        #results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Optimal Squad Finder</h1>
+        <div class="form-group">
+            <label for="beta">Beta Value: <span id="beta-value">1.5</span></label>
+            <input type="range" class="form-control-range" id="beta" min="0" max="2" step="0.1" value="1.5">
+        </div>
+        <button id="run-ilp" class="btn btn-primary">Find Optimal Squad</button>
+        <button id="recompute" class="btn btn-secondary" style="display:none;">Recompute with Edits</button>
+
+        <div id="results" style="display:none;">
+            <h2 class="mt-5">Optimal Squad</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th contenteditable="false">FMVexp</th>
+                        <th contenteditable="false">Prezzo</th>
+                        <th contenteditable="false">Pr. Exp</th>
+                    </tr>
+                </thead>
+                <tbody id="squad-table">
+                </tbody>
+            </table>
+            <div id="summary"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('beta').addEventListener('input', function() {
+            document.getElementById('beta-value').textContent = this.value;
+        });
+
+        document.getElementById('run-ilp').addEventListener('click', function() {
+            runIlp();
+        });
+        
+        document.getElementById('recompute').addEventListener('click', function() {
+            runIlp(true);
+        });
+
+        function runIlp(withEdits = false) {
+            const beta = document.getElementById('beta').value;
+            let payload = { beta: beta };
+
+            if (withEdits) {
+                const editedPlayers = [];
+                const rows = document.getElementById('squad-table').rows;
+                for (let i = 0; i < rows.length; i++) {
+                    const cells = rows[i].cells;
+                    editedPlayers.push({
+                        name: cells[0].innerText,
+                        fmv_exp: parseFloat(cells[2].innerText),
+                        price: parseInt(cells[3].innerText),
+                        pr_exp: parseFloat(cells[4].innerText)
+                    });
+                }
+                payload.players = editedPlayers;
+            }
+
+            fetch('/run_ilp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Error: ' + data.error);
+                    return;
+                }
+
+                const tableBody = document.getElementById('squad-table');
+                tableBody.innerHTML = '';
+                data.squadra.forEach(player => {
+                    const row = tableBody.insertRow();
+                    row.innerHTML = `
+                        <td>${player.name}</td>
+                        <td>${player.role}</td>
+                        <td contenteditable="true">${player.fmv_exp}</td>
+                        <td contenteditable="true">${player.price}</td>
+                        <td contenteditable="true">${player.pr_exp}</td>
+                    `;
+                });
+
+                const summary = document.getElementById('summary');
+                summary.innerHTML = `
+                    <p><b>Total Score:</b> ${data.totale_score.toFixed(2)}</p>
+                    <p><b>Total Cost:</b> ${data.costo}</p>
+                    <p><b>Total FMV:</b> ${data.fantamedia_tot.toFixed(2)}</p>
+                `;
+
+                document.getElementById('results').style.display = 'block';
+                document.getElementById('recompute').style.display = 'inline-block';
+            });
+        }
+    </script>
+</body>
+</html>
