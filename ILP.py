@@ -150,13 +150,13 @@ def concave_ILP(players, budget=450, beta=1.5, pr_cutoff=50):
     print("Fantamedia totale (se giocassero tutti):", fantamedia_tot)
     print("Costo totale:", costo)
     print(
-        f"Percentuale spesa attaccanti: {sum(p['price'] for p in squadra if p['role'] == 'A')/500*100:.1f}%")
+        f"Percentuale spesa attaccanti: {sum(p['price'] for p in squadra if p['role'] == 'A')/budget*100:.1f}%")
     print(
-        f"Percentuale spesa centrocampisti: {sum(p['price'] for p in squadra if p['role'] == 'C')/500*100:.1f}%")
+        f"Percentuale spesa centrocampisti: {sum(p['price'] for p in squadra if p['role'] == 'C')/budget*100:.1f}%")
     print(
-        f"Percentuale spesa difensori: {sum(p['price'] for p in squadra if p['role'] == 'D')/500*100:.1f}%")
+        f"Percentuale spesa difensori: {sum(p['price'] for p in squadra if p['role'] == 'D')/budget*100:.1f}%")
     print(
-        f"Percentuale spesa portiere: {sum(p['price'] for p in squadra if p['role'] == 'P')/500*100:.1f}%")
+        f"Percentuale spesa portiere: {sum(p['price'] for p in squadra if p['role'] == 'P')/budget*100:.1f}%")
 
     # write everything to a file
     with open(f"{RESULTS_FOLDER}/results_concave_ILP_beta{beta}_pr{pr_cutoff}.txt", "w") as f:
@@ -171,14 +171,14 @@ def concave_ILP(players, budget=450, beta=1.5, pr_cutoff=50):
         f.write(f"Fantamedia totale (se giocassero tutti): {fantamedia_tot}\n")
         f.write(f"Costo totale: {costo}\n")
         f.write(
-            f"Percentuale spesa attaccanti: {sum(p['price'] for p in squadra if p['role'] == 'A')/500*100:.1f}%\n")
+            f"Percentuale spesa attaccanti: {sum(p['price'] for p in squadra if p['role'] == 'A')/budget*100:.1f}%\n")
         f.write(
-            f"Percentuale spesa centrocampisti: {sum(p['price'] for p in squadra if p['role'] == 'C')/500*100:.1f}%\n")
+            f"Percentuale spesa centrocampisti: {sum(p['price'] for p in squadra if p['role'] == 'C')/budget*100:.1f}%\n")
         f.write(
-            f"Percentuale spesa difensori: {sum(p['price'] for p in squadra if p['role'] == 'D')/500*100:.1f}%\n")
+            f"Percentuale spesa difensori: {sum(p['price'] for p in squadra if p['role'] == 'D')/budget*100:.1f}%\n")
         f.write(
             # format everything in nice formatted tables
-            f"Percentuale spesa portiere: {sum(p['price'] for p in squadra if p['role'] == 'P')/500*100:.1f}%\n")
+            f"Percentuale spesa portiere: {sum(p['price'] for p in squadra if p['role'] == 'P')/budget*100:.1f}%\n")
     with open(f"{RESULTS_FOLDER}/results_concave_ILP_beta{beta}_pr{pr_cutoff}.md", "w") as f:
         f.write("# Squadra Ottimale (Concave ILP)\n\n")
         f.write(
