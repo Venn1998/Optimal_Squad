@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluate Squad</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">Evaluate Squad</h1>
+        <h1 class="mt-5"><i class="fas fa-futbol"></i> Evaluate Squad</h1>
         <a href="/">Back to Optimal Squad Finder</a>
         <form id="eval-form">
             <div class="form-group">
@@ -65,7 +68,7 @@
 
         $(document).ready(function() {
             const roleColors = {
-                'P': 'yellow',
+                'P': 'lightyellow',
                 'D': 'lightgreen',
                 'C': 'lightblue',
                 'A': 'lightcoral'
