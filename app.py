@@ -47,10 +47,6 @@ def run_ilp_route():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
 
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
 def evaluate_squad_from_names(squad_names):
     data = read_data()
     squad_players = []
@@ -76,11 +72,15 @@ def evaluate_squad_from_names(squad_names):
 
 @app.route('/run_eval', methods=['POST'])
 def run_eval_route():
-    player_names = [request.form.get(f'player_{i}') for i in range(11)]
-    squad_names = [name for name in player_names if name]
+    data = request.get_json()
+    squad_names = data.get('players', [])
 
     if len(squad_names) != 11:
         return jsonify({"error": "Please select exactly 11 players."}), 400
 
     evaluation = evaluate_squad_from_names(squad_names)
     return jsonify(evaluation)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

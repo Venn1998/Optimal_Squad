@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluate Squad</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -36,6 +37,8 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         const players = {{ players | tojson }};
         const playerSelectors = document.getElementById('player-selectors');
@@ -53,47 +56,82 @@
             players.forEach(player => {
                 const option = document.createElement('option');
                 option.value = player.name;
-                option.textContent = player.name;
+                option.textContent = `${player.name} (${player.fmv_exp})`;
                 select.appendChild(option);
             });
             playerSelectors.appendChild(select);
         }
 
-        document.getElementById('eval-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            fetch('/run_eval', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert('Error: ' + data.error);
-                    return;
+        $(document).ready(function() {
+            const roleColors = {
+                'P': 'yellow',
+                'D': 'lightgreen',
+                'C': 'lightblue',
+                'A': 'lightcoral'
+            };
+
+            function formatPlayer (player) {
+                if (!player.id) {
+                    return player.text;
                 }
+                var $player = $(
+                    '<span>' + player.text + '</span>'
+                );
+                var playerData = players.find(p => p.name === player.id);
+                if (playerData) {
+                    $player.css('background-color', roleColors[playerData.role]);
+                }
+                return $player;
+            };
 
-                const tableBody = document.getElementById('squad-table');
-                tableBody.innerHTML = '';
-                data.squad.forEach(player => {
-                    const row = tableBody.insertRow();
-                    row.innerHTML = `
-                        <td>${player.name}</td>
-                        <td>${player.role}</td>
-                        <td>${player.fmv_exp}</td>
-                        <td>${player.price}</td>
-                        <td>${player.pr_exp}</td>
+            $('select').select2({
+                templateResult: formatPlayer,
+                templateSelection: formatPlayer
+            });
+
+            $('#eval-form').on('submit', function(event) {
+                event.preventDefault();
+                const selectedPlayers = $('select').map(function() {
+                    return $(this).val();
+                }).get();
+                const payload = { players: selectedPlayers };
+
+                fetch('/run_eval', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                        return;
+                    }
+
+                    const tableBody = document.getElementById('squad-table');
+                    tableBody.innerHTML = '';
+                    data.squad.forEach(player => {
+                        const row = tableBody.insertRow();
+                        row.innerHTML = `
+                            <td>${player.name}</td>
+                            <td>${player.role}</td>
+                            <td>${player.fmv_exp}</td>
+                            <td>${player.price}</td>
+                            <td>${player.pr_exp}</td>
+                        `;
+                    });
+
+                    const summary = document.getElementById('summary');
+                    summary.innerHTML = `
+                        <p><b>Total Fanta Media:</b> ${data.total_fantamedia.toFixed(2)}</p>
+                        <p><b>Total Price:</b> ${data.total_price}</p>
+                        <p><b>Average Expected Appearances:</b> ${data.avg_pr_exp.toFixed(2)}%</p>
                     `;
+
+                    document.getElementById('results').style.display = 'block';
                 });
-
-                const summary = document.getElementById('summary');
-                summary.innerHTML = `
-                    <p><b>Total Fanta Media:</b> ${data.total_fantamedia.toFixed(2)}</p>
-                    <p><b>Total Price:</b> ${data.total_price}</p>
-                    <p><b>Average Expected Appearances:</b> ${data.avg_pr_exp.toFixed(2)}%</p>
-                `;
-
-                document.getElementById('results').style.display = 'block';
             });
         });
     </script>
