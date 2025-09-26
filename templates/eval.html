@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluate Squad</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Evaluate Squad</h1>
+        <a href="/">Back to Optimal Squad Finder</a>
+        <form id="eval-form">
+            <div class="form-group">
+                <label for="players">Select 11 Players:</label>
+                <div id="player-selectors"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Evaluate Squad</button>
+        </form>
+        <div id="results" class="mt-5" style="display:none;">
+            <h2>Evaluation Results</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>FMVexp</th>
+                        <th>Price</th>
+                        <th>Pr. Exp</th>
+                    </tr>
+                </thead>
+                <tbody id="squad-table">
+                </tbody>
+            </table>
+            <div id="summary"></div>
+        </div>
+    </div>
+
+    <script>
+        const players = {{ players | tojson }};
+        const playerSelectors = document.getElementById('player-selectors');
+
+        for (let i = 0; i < 11; i++) {
+            const select = document.createElement('select');
+            select.name = 'player_' + i;
+            select.className = 'form-control mb-2';
+
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = 'Select a player';
+            select.appendChild(defaultOption);
+
+            players.forEach(player => {
+                const option = document.createElement('option');
+                option.value = player.name;
+                option.textContent = player.name;
+                select.appendChild(option);
+            });
+            playerSelectors.appendChild(select);
+        }
+
+        document.getElementById('eval-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('/run_eval', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Error: ' + data.error);
+                    return;
+                }
+
+                const tableBody = document.getElementById('squad-table');
+                tableBody.innerHTML = '';
+                data.squad.forEach(player => {
+                    const row = tableBody.insertRow();
+                    row.innerHTML = `
+                        <td>${player.name}</td>
+                        <td>${player.role}</td>
+                        <td>${player.fmv_exp}</td>
+                        <td>${player.price}</td>
+                        <td>${player.pr_exp}</td>
+                    `;
+                });
+
+                const summary = document.getElementById('summary');
+                summary.innerHTML = `
+                    <p><b>Total Fanta Media:</b> ${data.total_fantamedia.toFixed(2)}</p>
+                    <p><b>Total Price:</b> ${data.total_price}</p>
+                    <p><b>Average Expected Appearances:</b> ${data.avg_pr_exp.toFixed(2)}%</p>
+                `;
+
+                document.getElementById('results').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

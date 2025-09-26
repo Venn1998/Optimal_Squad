@@ -10,6 +10,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/eval')
+def eval_page():
+    players = read_data()
+    return render_template('eval.html', players=players)
+
 
 @app.route('/run_ilp', methods=['POST'])
 def run_ilp_route():
@@ -45,3 +50,37 @@ def run_ilp_route():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+def evaluate_squad_from_names(squad_names):
+    data = read_data()
+    squad_players = []
+    total_fantamedia = 0
+    total_price = 0
+    total_pr_exp = 0
+
+    for player_name in squad_names:
+        for p in data:
+            if p['name'] == player_name:
+                squad_players.append(p)
+                total_fantamedia += p['fmv_exp']
+                total_price += p['price']
+                total_pr_exp += p['pr_exp']
+                break
+    
+    return {
+        "squad": squad_players,
+        "total_fantamedia": total_fantamedia,
+        "total_price": total_price,
+        "avg_pr_exp": total_pr_exp / 11 if squad_names else 0
+    }
+
+@app.route('/run_eval', methods=['POST'])
+def run_eval_route():
+    player_names = [request.form.get(f'player_{i}') for i in range(11)]
+    squad_names = [name for name in player_names if name]
+
+    if len(squad_names) != 11:
+        return jsonify({"error": "Please select exactly 11 players."}), 400
+
+    evaluation = evaluate_squad_from_names(squad_names)
+    return jsonify(evaluation)
