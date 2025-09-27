@@ -99,7 +99,7 @@ def ILP_presenze():
     print("Costo totale:", costo_tot)
 
 
-def concave_ILP(players, budget=450, beta=1.5, pr_cutoff=50):
+def concave_ILP(players, budget=450, beta=0.5, pr_cutoff=50):
     """
     players: lista di dict con keys: name, role (P/D/C/A), price, fmv_exp, pr_exp
     beta: parametro concavità (0<beta<=1). Più basso = meno importanza alle presenze.

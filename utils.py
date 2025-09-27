@@ -23,7 +23,7 @@ def read_data(files=files):
             "Nome": "name",
             "Pr. Exp": "pr_exp",
             "FMVexp": "fmv_exp",
-            "Prz mio": "price"
+            "Prz Medio": "price"
         })
 
         df = df.drop(columns=[col for col in df.columns if col not in [

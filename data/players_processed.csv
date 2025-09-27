@@ -1,237 +1,241 @@
 name,pr_exp,fmv_exp,price,role
-Meret + Milinkovic,100.0,5.42,50,P
-Sommer + martinez,100.0,5.35,40,P
-Di Gregorio,100.0,5.24,40,P
-Svilar,100.0,5.11,43,P
-Maignan + Terracciano,100.0,5.25,41,P
-Carnesecchi,100.0,5.0,35,P
-De Gea,100.0,5.08,30,P
-provedel + mandas,100.0,4.66,26,P
-Skorupski + ravaglia,100.0,4.88,25,P
-Butez,100.0,4.87,16,P
-Leali,100.0,4.84,15,P
-Caprile,100.0,4.87,13,P
-Israel,100.0,4.83,13,P
-Falcone,100.0,4.73,6,P
+Meret + Milinkovic,100.0,5.42,60,P
+Sommer + martinez,100.0,5.35,50,P
+Di Gregorio,100.0,5.24,50,P
+Svilar,100.0,5.11,49,P
+Maignan + Terracciano,100.0,5.25,47,P
+Carnesecchi,100.0,5.0,40,P
+De Gea,100.0,5.08,37,P
+provedel + mandas,100.0,4.66,30,P
+Skorupski + ravaglia,100.0,4.88,20,P
+Butez,100.0,4.87,17,P
+Leali,100.0,4.84,10,P
+Caprile,100.0,4.87,8,P
+Israel,100.0,4.83,7,P
+Falcone,100.0,4.73,7,P
 Suzuki,100.0,4.76,5,P
-Sava,100.0,4.76,4,P
-montipo,100.0,4.5,7,P
-audero,100.0,4.59,7,P
-Muric,100.0,4.75,6,P
-semper,100.0,4.37,4,P
-Dumfries,80.0,6.79,51,D
-Dimarco,80.0,6.69,50,D
-Gosens,85.0,6.68,33,D
+Sava,100.0,4.76,3,P
+montipo,100.0,4.5,3,P
+audero,100.0,4.59,2,P
+Muric,100.0,4.75,1,P
+semper,100.0,4.37,1,P
+Dumfries,80.0,6.79,45,D
+Dimarco,80.0,6.69,43,D
+Gosens,85.0,6.68,38,D
 Bastoni,85.0,6.43,35,D
 Bremer,80.0,6.39,34,D
-Cambiaso,70.0,6.37,23,D
-Di Lorenzo,90.0,6.36,27,D
-Angelino,80.0,6.32,23,D
-Bellanova,80.0,6.26,24,D
-Spinazzola,60.0,6.23,15,D
-Wesley,80.0,6.13,22,D
-Dodò,90.0,6.15,21,D
-Tavares,70.0,6.4,19,D
-Buongiorno,70.0,6.48,20,D
-Zortea,80.0,6.21,15,D
-Rrahmani,80.0,6.21,13,D
-Martin,80.0,6.15,16,D
-Estupinian,70.0,6.35,20,D
-Mancini,90.0,6.22,15,D
-Solet,80.0,6.19,20,D
-Miranda,80.0,6.1,8,D
-Valeri,80.0,6.1,13,D
-Joao mario,60.0,6.29,6,D
-Kalulu,70.0,6.08,14,D
+Cambiaso,70.0,6.37,33,D
+Di Lorenzo,90.0,6.36,32,D
+Angelino,80.0,6.32,32,D
+Bellanova,80.0,6.26,31,D
+Spinazzola,60.0,6.23,5,D
+Wesley,80.0,6.13,30,D
+Dodò,90.0,6.15,28,D
+Tavares,70.0,6.4,27,D
+Buongiorno,70.0,6.48,26,D
+Zortea,80.0,6.21,19,D
+Rrahmani,80.0,6.21,18,D
+Martin,80.0,6.15,18,D
+Estupinian,70.0,6.35,18,D
+Mancini,90.0,6.22,17,D
+Solet,80.0,6.19,17,D
+Miranda,80.0,6.1,16,D
+Valeri,80.0,6.1,15,D
+Joao mario,60.0,6.29,15,D
+Kalulu,70.0,6.08,13,D
 Akanji,70.0,6.18,12,D
-Pavlovic,70.0,6.18,10,D
-Vojvoda,60.0,6.06,8,D
-Ramon,80.0,5.99,7,D
+Pavlovic,70.0,6.18,12,D
+Vojvoda,60.0,6.06,12,D
+Ramon,80.0,5.99,11,D
 Hien,80.0,5.84,11,D
-Carlos augusto,65.0,6.5,18,D
-N'dicka,75.0,6.03,11,D
-Tomori,70.0,6.16,12,D
-Gatti,70.0,6.13,8,D
+Carlos augusto,65.0,6.5,11,D
+N'dicka,75.0,6.03,10,D
+Tomori,70.0,6.16,10,D
+Gatti,70.0,6.13,10,D
 Delprato,70.0,5.99,10,D
 Zappacosta,60.0,6.35,10,D
 Vasquez,80.0,6.11,9,D
-Gutierrez,60.0,6.39,5,D
-Vitik,80.0,6.03,9,D
-Luperto,80.0,6.0,9,D
-Doig,70.0,5.99,8,D
-Gila,70.0,5.95,9,D
-Olivera,60.0,6.11,6,D
-Acerbi,50.0,6.24,10,D
-Beukema,60.0,6.1,9,D
-Lazaro,70.0,6.09,8,D
-Mina,70.0,6.0,9,D
-Valle,70.0,5.91,7,D
-Kelly,70.0,6.11,7,D
+Gutierrez,60.0,6.39,9,D
+Vitik,80.0,6.03,7,D
+Luperto,80.0,6.0,7,D
+Doig,70.0,5.99,7,D
+Gila,70.0,5.95,7,D
+Olivera,60.0,6.11,7,D
+Acerbi,50.0,6.24,7,D
+Beukema,60.0,6.1,7,D
+Lazaro,70.0,6.09,6,D
+Mina,70.0,6.0,6,D
+Valle,70.0,5.91,6,D
+Kelly,70.0,6.11,5,D
 Hermoso,70.0,5.99,5,D
-Scalvini,70.0,5.96,10,D
+Scalvini,70.0,5.96,5,D
 Biraghi,70.0,5.95,5,D
-Comuzzo,70.0,5.94,6,D
-Bisseck,50.0,6.24,7,D
+Comuzzo,70.0,5.94,5,D
+Bisseck,50.0,6.24,5,D
 De winter,50.0,6.1,5,D
 Norton-cuffy,80.0,6.01,5,D
-Angori,80.0,5.99,8,D
+Angori,80.0,5.99,4,D
 Palestra,70.0,6.05,4,D
-Gaspar,70.0,6.03,6,D
-Romagnoli,70.0,6.02,9,D
-Cuadrado,60.0,6.36,3,D
-De vrij,40.0,6.33,9,D
-Baschirotto,85.0,5.88,7,D
-Marusic,70.0,6.01,7,D
-Gabbia,60.0,6.13,7,D
-Kossounou,60.0,5.87,5,D
+Gaspar,70.0,6.03,4,D
+Romagnoli,70.0,6.02,4,D
+Cuadrado,60.0,6.36,4,D
+De vrij,40.0,6.33,4,D
+Baschirotto,85.0,5.88,3,D
+Marusic,70.0,6.01,3,D
+Gabbia,60.0,6.13,3,D
+Kossounou,60.0,5.87,3,D
 Tsimikas,50.0,6.13,3,D
-Ranieri,70.0,6.0,5,D
-Gallo,80.0,5.99,4,D
+Ranieri,70.0,6.0,3,D
+Gallo,80.0,5.99,3,D
 Kristensen,80.0,5.97,3,D
-Idzes,80.0,6.03,4,D
-F. Mussolini,60.0,5.96,1,D
-Pezzella Giu.,60.0,5.94,1,D
-Ismajli,70.0,6.12,5,D
+Idzes,80.0,6.03,2,D
+F. Mussolini,60.0,5.96,2,D
+Pezzella Giu.,60.0,5.94,2,D
+Ismajli,70.0,6.12,1,D
+Belghali,70.0,5.96,1,D
+Ehizibue,70.0,5.94,1,D
 Lucumi,70.0,5.8,1,D
+Darmian,50.0,6.31,1,D
+Diego Carlos,60.0,5.95,1,D
 Zanoli,50.0,5.86,1,D
 Coco,70.0,5.95,1,D
-Mctominay,80.0,7.31,106,C
-Paz N.,85.0,7.1,91,C
-Pulisic,80.0,7.34,120,C
-Orsolini,75.0,7.58,113,C
-Zaccagni,90.0,7.05,100,C
-Gudmundson,70.0,7.15,65,C
-De Bruyne,75.0,7.04,70,C
-Conceicao,65.0,6.77,38,C
-Calhanoglu,80.0,6.9,70,C
-Barella,80.0,6.52,26,C
-Politano,80.0,6.59,36,C
-Thuram K.,80.0,6.54,32,C
-Odgaard,70.0,6.85,24,C
-Rabiot,85.0,6.6,70,C
-Zhegrova,65.0,6.82,34,C
-Isaksen,70.0,6.61,16,C
-Kone,80.0,6.45,21,C
-Modric,70.0,6.63,27,C
-Zambo Anguissa,80.0,6.58,33,C
-Vlasic,80.0,6.55,20,C
-Sucic,60.0,6.52,15,C
-Ederson,80.0,6.37,17,C
-Tramoni,80.0,6.4,13,C
-Neres,60.0,6.7,10,C
-Saelemekers,70.0,6.7,25,C
-Loftus-cheek,70.0,6.45,11,C
-Koopmeiners,50.0,6.49,13,C
-carboni v.,60.0,6.44,12,C
-Atta,80.0,6.44,19,C
-Stanciu,70.0,6.55,10,C
-Rowe,60.0,6.58,18,C
-Baturina,60.0,6.55,5,C
-Bernabè,80.0,6.25,19,C
-Frattesi,60.0,6.69,11,C
-Cornet,60.0,6.57,7,C
-Maldini,60.0,6.54,6,C
+Mctominay,80.0,7.31,82,C
+Paz N.,85.0,7.1,80,C
+Pulisic,80.0,7.34,78,C
+Orsolini,75.0,7.58,75,C
+Zaccagni,90.0,7.05,73,C
+Gudmundson,70.0,7.15,67,C
+De Bruyne,75.0,7.04,67,C
+Conceicao,65.0,6.77,48,C
+Calhanoglu,80.0,6.9,45,C
+Barella,80.0,6.52,38,C
+Politano,80.0,6.59,35,C
+Thuram K.,80.0,6.54,34,C
+Odgaard,70.0,6.85,34,C
+Rabiot,85.0,6.6,34,C
+Zhegrova,65.0,6.82,30,C
+Isaksen,70.0,6.61,25,C
+Kone,80.0,6.45,24,C
+Modric,70.0,6.63,24,C
+Zambo Anguissa,80.0,6.58,23,C
+Vlasic,80.0,6.55,23,C
+Sucic,60.0,6.52,23,C
+Ederson,80.0,6.37,22,C
+Tramoni,80.0,6.4,21,C
+Neres,60.0,6.7,20,C
+Saelemekers,70.0,6.7,18,C
+Loftus-cheek,70.0,6.45,18,C
+Koopmeiners,50.0,6.49,18,C
+carboni v.,60.0,6.44,16,C
+Atta,80.0,6.44,15,C
+Stanciu,70.0,6.55,13,C
+Rowe,60.0,6.58,12,C
+Baturina,60.0,6.55,11,C
+Bernabè,80.0,6.25,10,C
+Frattesi,60.0,6.69,10,C
+Cornet,60.0,6.57,10,C
+Maldini,60.0,6.54,10,C
 Samardzic,60.0,6.48,10,C
-Bailey,60.0,6.6,13,C
-Folorunsho,80.0,6.25,14,C
+Bailey,60.0,6.6,9,C
+Folorunsho,80.0,6.25,8,C
 Dele-bashiru,70.0,6.55,8,C
 Fazzini,60.0,6.55,8,C
-Gronbaek,60.0,6.19,5,C
-Pasalic,70.0,6.61,16,C
-Vazquez,70.0,6.41,10,C
-Oristanio,70.0,6.41,15,C
-Mandragora,70.0,6.34,15,C
-Vandeputte,70.0,6.25,15,C
+Gronbaek,60.0,6.19,8,C
+Pasalic,70.0,6.61,7,C
+Vazquez,70.0,6.41,7,C
+Oristanio,70.0,6.41,7,C
+Mandragora,70.0,6.34,7,C
+Vandeputte,70.0,6.25,7,C
 Collocolo,70.0,6.24,7,C
-Zalewski,70.0,6.29,11,C
-Elsha,50.0,6.79,8,C
-Ellertson,60.0,6.2,8,C
+Zalewski,70.0,6.29,7,C
+Elsha,50.0,6.79,7,C
+Ellertson,60.0,6.2,7,C
 Toure,70.0,6.2,6,C
-Casadei,80.0,6.37,10,C
-Da cunha,80.0,6.37,11,C
-Cristante,80.0,6.36,10,C
-Thorstvedt,70.0,6.13,6,C
-Mkhitarian,60.0,6.55,3,C
-Sohm,60.0,6.32,11,C
-Elmas,50.0,6.53,9,C
+Casadei,80.0,6.37,5,C
+Da cunha,80.0,6.37,5,C
+Cristante,80.0,6.36,5,C
+Thorstvedt,70.0,6.13,5,C
+Mkhitarian,60.0,6.55,5,C
+Sohm,60.0,6.32,5,C
+Elmas,50.0,6.53,5,C
 El Ayanaoi,50.0,6.33,5,C
 Zaniolo,50.0,6.27,5,C
 Pellegrini lo,50.0,6.3,5,C
-Guendouzi,80.0,6.38,8,C
-Locatelli,70.0,6.32,5,C
-Stengs,70.0,6.41,1,C
+Guendouzi,80.0,6.38,4,C
+Locatelli,70.0,6.32,4,C
+Stengs,70.0,6.41,3,C
 Malinovsky,60.0,6.5,3,C
 Gaetano,60.0,6.35,3,C
-Nicolussi Cav,50.0,6.39,7,C
-De roon,80.0,6.13,10,C
-Freuler,80.0,6.24,3,C
+Nicolussi Cav,50.0,6.39,3,C
+De roon,80.0,6.13,2,C
+Freuler,80.0,6.24,1,C
 Frendrup,80.0,6.1,1,C
 Tete morente,70.0,6.19,1,C
 Pierotti,70.0,6.15,1,C
 Lobotka,70.0,6.12,1,C
-Zerbin,70.0,6.0,2,C
+Zerbin,70.0,6.0,1,C
 Lorran,60.0,6.28,1,C
 Sottil,60.0,6.19,1,C
-Rovella,70.0,6.03,1,C
-Fofana,60.0,6.2,3,C
+Fofana,60.0,6.2,1,C
 Jashari,50.0,6.51,1,C
-Lautaro,80.0,8.1,173,A
-Thuram,85.0,8.0,176,A
-Kean,85.0,8.0,170,A
-Leao,80.0,7.4,95,A
-Yildiz,85.0,7.34,123,A
-David,70.0,7.73,122,A
+Lautaro,80.0,8.1,155,A
+Thuram,85.0,8.0,150,A
+Kean,85.0,8.0,143,A
+Leao,80.0,7.4,110,A
+Yildiz,85.0,7.34,100,A
+David,70.0,7.73,100,A
 Hoilund,70.0,7.5,100,A
-Ferguson E.,75.0,7.43,76,A
-Castellanos,80.0,7.44,97,A
-Scamacca,70.0,7.5,53,A
-Berardi,85.0,7.3,85,A
-Soule,70.0,7.2,78,A
-Dybala,50.0,7.59,65,A
-Lookman,60.0,7.25,57,A
-Openda,60.0,7.26,57,A
-Gimenez,60.0,7.2,47,A
-Castro,80.0,6.93,69,A
-Vlahovic,60.0,7.36,60,A
-De ketelaere,80.0,6.94,71,A
-Pellegrino,80.0,6.85,33,A
-Krstovic,70.0,7.35,90,A
-Nkunku,60.0,7.21,58,A
-Lucca,50.0,7.27,27,A
-Pinamonti,80.0,6.78,41,A
-Vardy,70.0,6.8,22,A
-Zapata,50.0,7.42,40,A
-Dovbyk,60.0,7.01,12,A
-Morata,70.0,6.91,33,A
-Lukaku,40.0,7.37,20,A
-Esposito Se.,80.0,6.79,32,A
-Douvikas,60.0,6.78,12,A
-Piccoli,60.0,6.78,31,A
-Laurientiè,80.0,6.71,20,A
-Bonny,60.0,6.8,17,A
-Diao,50.0,7.18,17,A
-Colombo,80.0,6.59,16,A
-Camarda,60.0,6.55,9,A
-Dzeko,40.0,7.0,15,A
-Dia,60.0,6.9,20,A
-Davis,70.0,6.6,25,A
-Belotti,70.0,6.43,22,A
-Simeone,60.0,6.88,25,A
-Nzola,60.0,6.64,17,A
-Lang,50.0,6.88,7,A
-Giovane,70.0,6.67,12,A
-J. Rodriguez,70.0,6.57,10,A
-Adams,50.0,6.82,13,A
-Immobile,50.0,7.15,20,A
-Orban,70.0,6.6,31,A
-Stulic,70.0,6.58,14,A
-Sanabria,70.0,6.5,15,A
-Bravo,70.0,6.46,1,A
-Addai,60.0,6.64,1,A
-Ngonge,60.0,6.63,1,A
-Cutrone,60.0,6.58,1,A
-Pedro,60.0,6.8,6,A
-Kuhn,60.0,6.61,16,A
-Cambiaghi,50.0,6.6,2,A
-Esposito F.P.,40.0,7.1,2,A
-Bonazzoli?,50.0,6.5,1,A
+Ferguson E.,75.0,7.43,95,A
+Castellanos,80.0,7.44,90,A
+Scamacca,70.0,7.5,80,A
+Berardi,85.0,7.3,75,A
+Soule,70.0,7.2,70,A
+Dybala,50.0,7.59,60,A
+Lookman,60.0,7.25,55,A
+Openda,60.0,7.26,50,A
+Gimenez,60.0,7.2,50,A
+Castro,80.0,6.93,47,A
+Vlahovic,60.0,7.36,45,A
+De ketelaere,80.0,6.94,41,A
+Pellegrino,80.0,6.85,40,A
+Krstovic,70.0,7.35,40,A
+Nkunku,60.0,7.21,40,A
+Lucca,50.0,7.27,40,A
+Pinamonti,80.0,6.78,34,A
+Vardy,70.0,6.8,30,A
+Zapata,50.0,7.42,30,A
+Dovbyk,60.0,7.01,28,A
+Morata,70.0,6.91,25,A
+Lukaku,40.0,7.37,22,A
+Esposito Se.,80.0,6.79,20,A
+Douvikas,60.0,6.78,18,A
+Piccoli,60.0,6.78,16,A
+Laurientiè,80.0,6.71,15,A
+Bonny,60.0,6.8,15,A
+Diao,50.0,7.18,15,A
+Colombo,80.0,6.59,13,A
+Camarda,60.0,6.55,13,A
+Dzeko,40.0,7.0,13,A
+Dia,60.0,6.9,12,A
+Davis,70.0,6.6,10,A
+Belotti,70.0,6.43,15,A
+Simeone,60.0,6.88,10,A
+Nzola,60.0,6.64,10,A
+Lang,50.0,6.88,10,A
+Giovane,70.0,6.67,7,A
+J. Rodriguez,70.0,6.57,7,A
+Adams,50.0,6.82,7,A
+Immobile,50.0,7.15,7,A
+Orban,70.0,6.6,3,A
+Stulic,70.0,6.58,3,A
+Sanabria,70.0,6.5,3,A
+Bravo,70.0,6.46,3,A
+Addai,60.0,6.64,3,A
+Ngonge,60.0,6.63,3,A
+Cutrone,60.0,6.58,3,A
+Pedro,60.0,6.8,2,A
+Kuhn,60.0,6.61,2,A
+Meister,70.0,6.42,1,A
+Buksa,50.0,6.46,1,A
+Cambiaghi,50.0,6.6,1,A
+Esposito F.P.,40.0,7.1,1,A
