@@ -9,4 +9,5 @@ dependencies = [
     "gunicorn>=23.0.0",
     "pandas>=2.3.2",
     "pulp[open-py]>=3.3.0",
+    "streamlit>=1.50.0",
 ]
