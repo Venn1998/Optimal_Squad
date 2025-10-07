@@ -26,6 +26,29 @@
         <div class="mb-3">
             <a href="/eval" class="btn btn-primary btn-lg d-block mx-auto w-50 font-weight-bold rounded-pill"><i class="fas fa-arrow-right"></i> Go to Squad Evaluator</a>
         </div>
+
+        <div class="data-management">
+            <h3 class="mt-4">Data</h3>
+            <div class="mb-3">
+                <a href="{{ url_for('download_file', filename='players_processed.csv') }}" class="btn btn-info"><i class="fas fa-download"></i> Download Players CSV</a>
+            </div>
+            <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Upload a new CSV to temporarily use for the ILP algorithm:</label>
+                    <input type="file" name="file" class="form-control-file" id="file">
+                </div>
+                <button type="submit" class="btn btn-success"><i class="fas fa-upload"></i> Upload</button>
+            </form>
+            {% if uploaded_file %}
+            <div class="mt-3">
+                <p>Currently using: <strong>{{ uploaded_file }}</strong></p>
+                <a href="{{ url_for('clear_upload') }}" class="btn btn-danger"><i class="fas fa-times-circle"></i> Clear Uploaded File</a>
+            </div>
+            {% endif %}
+        </div>
+
+        <hr>
+
         <div class="form-group">
             <label for="budget">Budget:
                <a href="#" data-toggle="popover" title="Budget Explanation" data-content="Total budget available for the starting 11 players, excluding reserves. Default is 450">

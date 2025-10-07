@@ -1,14 +1,46 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session, send_from_directory, redirect, url_for
 from ILP import concave_ILP
 from utils import read_data
 import pandas as pd
+import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
+UPLOAD_FOLDER = 'data'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', uploaded_file=session.get('uploaded_file_name'))
+
+@app.route('/download/<filename>')
+def download_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        return redirect(request.url)
+    file = request.files['file']
+    if file.filename == '':
+        return redirect(request.url)
+    if file and file.filename.endswith('.csv'):
+        filename = 'temp_players.csv'
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+        session['uploaded_file_name'] = filename
+        session['uploaded_file_path'] = filepath
+    return redirect(url_for('index'))
+
+@app.route('/clear')
+def clear_upload():
+    if 'uploaded_file_path' in session:
+        if os.path.exists(session['uploaded_file_path']):
+            os.remove(session['uploaded_file_path'])
+        session.pop('uploaded_file_name', None)
+        session.pop('uploaded_file_path', None)
+    return redirect(url_for('index'))
 
 @app.route('/eval')
 def eval_page():
@@ -24,7 +56,9 @@ def run_ilp_route():
 
     edited_players = data.get('players')
 
-    if edited_players:
+    if 'uploaded_file_path' in session:
+        players = pd.read_csv(session['uploaded_file_path']).to_dict('records')
+    elif edited_players:
         # If player data is edited, we use it
         all_players_df = pd.DataFrame(read_data())
 
