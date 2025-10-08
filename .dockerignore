@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+#results files
+results/
+results2/
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
