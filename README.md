@@ -29,7 +29,29 @@ This tool uses Integer Linear Programming (ILP) to find the optimal squad based 
     *   **Budget:** The total cost of the squad must not exceed your budget.
     *   **Team Formation:** The squad must consist of a specific formation (currently hardcoded to 1 goalkeeper, 4 defenders, 3 midfielders, and 3 attackers).
 
-## How to Use
+## How to Use (with Docker)
+
+Containerizing the application with Docker is the recommended way to run it, as it guarantees a consistent environment across different machines (e.g., Linux, macOS, Windows). This is especially useful for avoiding issues with binary dependencies like the CBC solver, particularly on Apple Silicon.
+
+1.  **Prerequisite:** Ensure you have [Docker](https://www.docker.com/get-started) installed and running on your system.
+
+2.  **Build the Docker Image:**
+    Open your terminal in the project's root directory and run the following command. This will build the image and tag it as `optimal-squad`.
+    ```bash
+    docker build -t optimal-squad .
+    ```
+
+3.  **Run the Docker Container:**
+    Once the image is built, run the container with this command:
+    ```bash
+    docker run -p 5000:5000 optimal-squad
+    ```
+    This command starts the container and maps port 5000 from the container to port 5000 on your local machine.
+
+4.  **Access the Application:**
+    Open your web browser and navigate to `http://localhost:5000`.
+
+## How to Use (Locally)
 
 A demo is available at https://rosa-ottimale.onrender.com/, loading could take up to 30 seconds. 
 
